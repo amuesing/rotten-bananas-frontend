@@ -1,15 +1,15 @@
 // import './App.css';
 import React from 'react';
-import Nav from './Nav';
+import NavBar from './NavBar';
 import MediaContainer from './MediaContainer';
 
-import data from '../data';
+import reviews from '../data/reviews.js';
 
 function App() {
   return (
     <div className="App">
-      <Nav />
-      <MediaContainer data={data}/>
+      <NavBar />
+      <MediaContainer reviews={reviews}/>
     </div>
   );
 }
