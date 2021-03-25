@@ -1,10 +1,15 @@
 import React from 'react'
 import ReviewContainer from './ReviewContainer'
 
-function MediaCard() {
+function MediaCard({review}) {
     return (
-        <div>
-            <ReviewContainer />
+        <div> 
+           
+            <h1>{review.media.title}</h1>
+            <h1>{review.media.video}</h1>
+            <h1>{review.media.details}</h1>
+      
+            <ReviewContainer review={review} />
         </div>
     )
 }

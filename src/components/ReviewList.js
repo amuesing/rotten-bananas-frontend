@@ -2,10 +2,10 @@ import React from 'react'
 import ReviewCard from './ReviewCard'
 import NewReviewForm from './NewReviewForm'
 
-const ReviewList = () => {
+const ReviewList = ({review}) => {
     return (
         <div>
-            <ReviewCard />
+            <ReviewCard review={review}/>
             <NewReviewForm />
         </div>
     )

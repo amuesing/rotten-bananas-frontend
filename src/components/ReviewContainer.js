@@ -1,10 +1,10 @@
 import React from 'react'
 import ReviewList from './ReviewList'
 
-const ReviewContainer = () => {
+const ReviewContainer = ({review}) => {
     return (
         <div>
-            <ReviewList />
+            <ReviewList review={review}/>
         </div>
     )
 }
