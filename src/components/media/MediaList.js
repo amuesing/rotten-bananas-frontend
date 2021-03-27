@@ -3,9 +3,10 @@ import MediaCard from './MediaCard'
 
 
 
-function MediaList({reviews}) {
-    const mediaObject = reviews.map((reviewObj) => {
-        return <MediaCard key={reviewObj.id} id={reviewObj.id} review={reviewObj}/>})
+function MediaList({media, review}) {
+    // console.log(review)
+    const mediaObject = media.map((mediaObj) => {
+        return <MediaCard key={mediaObj.id} id={mediaObj.id} media={mediaObj} review={review}/>})
     return (
         <div>
         {mediaObject}  

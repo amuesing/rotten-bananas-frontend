@@ -3,9 +3,12 @@ import ReviewCard from './ReviewCard'
 import NewReviewForm from './NewReviewForm'
 
 const ReviewList = ({review}) => {
+    const reviewObject = review.map((reviewObj) => {
+        return <ReviewCard review={reviewObj}/>
+    })
     return (
         <div>
-            <ReviewCard review={review}/>
+            {reviewObject}
             <NewReviewForm />
         </div>
     )
