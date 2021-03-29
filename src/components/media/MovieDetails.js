@@ -1,6 +1,6 @@
-function MovieDetails() {
+function MovieDetails({details}) {
     return (
-        <h1>Movie Details</h1>
+        <h3>{details}</h3>
     )
 }
 
