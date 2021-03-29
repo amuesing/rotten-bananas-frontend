@@ -20,13 +20,18 @@ function MediaContainer() {
         .then((r) => r.json())
         .then(setReview)
     }, [])
-    
+
+    function handleAddReview(newReview) {
+        const updatedReviewsArray = [...review, newReview];
+        setReview(updatedReviewsArray);
+        // console.log(updatedReviewsArray)
+      }
 
     return (
         <div>
             <NavBar searchTerm={searchTerm} onSearchChange={setSearchTerm}/>
             <Featured />           
-            <MediaList media={media} review={review}/>
+            <MediaList media={media} review={review} handleAddReview={handleAddReview}/>
         </div>
     )
     }
