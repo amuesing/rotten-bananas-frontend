@@ -1,12 +1,13 @@
 import React from 'react'
 
 
-const ReviewCard = ({review}) => {
+const ReviewCard = ({reviews}) => {
+    console.log(reviews)
     return (
         <div>
-             <h1>{review.date}</h1>
-            <h1>{review.review}</h1>
-            <h1>{review.rating}</h1>
+             {/* <h1>{reviews.date}</h1>
+            <h1>{reviews.review}</h1>
+            <h1>{reviews.rating}</h1> */}
         </div>
     )
 }

@@ -1,10 +1,14 @@
 import React from 'react'
-import ReviewList from './ReviewList'
+import ReviewCard from './ReviewCard'
 
-const ReviewContainer = ({review}) => {
+const ReviewContainer = ({reviews}) => {
+    const reviewObject = reviews.map((reviewObj) => {
+        return <ReviewCard key={reviewObj.id} review={reviewObj}/>
+    })
+    // console.log(reviews)
     return (
         <div>
-            <ReviewList review={review}/>
+            {reviewObject}
         </div>
     )
 }

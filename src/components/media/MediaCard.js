@@ -2,16 +2,20 @@ import React, {useState} from 'react'
 import ReactPlayer from "react-player"
 import ReviewContainer from '../reviews/ReviewContainer.js'
 import MovieDetails from './MovieDetails'
+// import NewReviewForm from '../reviews/NewReviewForm.js'
+// import ReviewCard from '../reviews/ReviewCard'
 
-function MediaCard({media, review}) {
-    // console.log(review)
+function MediaCard({media, reviews}) {
+    // console.log(reviews)
     const [showReviews, setShowReviews] = useState(true)
+
+    
     function mediaReviews() {
-        return <ReviewContainer review={review} />}
+        return <ReviewContainer reviews={reviews} />}
 
     function handleShowReviews() {
         setShowReviews(!showReviews)
-        console.log(showReviews)
+        // console.log(showReviews)
     }
 
 
@@ -20,17 +24,18 @@ function MediaCard({media, review}) {
         <div style={{display: 'flex', flexDirection: 'column', justifyContent:'center', alignItems:'center', height: '100vh'}}> 
             <h1>{media.title}</h1>
             <ReactPlayer 
-            url={media.video_url} // video location
-            controls  // gives the front end video controls 
+            url={media.video_url}
+            controls
             width='50%' 
             height='50%'
             config={{ file: { 
             attributes: {
-                controlsList: 'nodownload'  //<- this is the important bit
+                controlsList: 'nodownload'
             }
             }}}
-            onEnded={()=>this.onEnded()}
-/>
+            onEnded={()=>this.onEnded()}/>
+            {/* {reviewObject} */}
+            {/* <NewReviewForm /> */}
             <MovieDetails details={media.details}/>
             <button className="showReviews" onClick={handleShowReviews}> {showReviews ? "Show" : "Hide"} Reviews</button>
             {showReviews ? null : mediaReviews()}
