@@ -4,12 +4,12 @@ import ReviewContainer from '../reviews/ReviewContainer.js'
 import MovieDetails from './MovieDetails'
 import NewReviewForm from '../reviews/NewReviewForm.js'
 
-function MediaCard({media, reviews, handleAddReview}) {
+function MediaCard({media, reviews, handleAddReview, handleDeleteReview, activeUser, id}) {
     const [showReviews, setShowReviews] = useState(true)
 
     
     function mediaReviews() {
-        return <ReviewContainer reviews={reviews} />}
+        return <ReviewContainer handleDeleteReview={handleDeleteReview} reviews={reviews} />}
 
     function handleShowReviews() {
         setShowReviews(!showReviews)
@@ -31,7 +31,7 @@ function MediaCard({media, reviews, handleAddReview}) {
                 controlsList: 'nodownload'
             }}}}
             onEnded={()=>this.onEnded()}/>
-            <NewReviewForm onAddReview={handleAddReview}/>
+            <NewReviewForm onAddReview={handleAddReview} activeUser={activeUser} medium_id={id}/>
             <MovieDetails details={media.details}/>
             <button className="showReviews" onClick={handleShowReviews}> {showReviews ? "Show" : "Hide"} Reviews</button>
             {showReviews ? null : mediaReviews()}

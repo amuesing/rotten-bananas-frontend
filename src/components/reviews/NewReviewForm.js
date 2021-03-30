@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function NewReviewForm({ onAddReview }) {
+function NewReviewForm({ onAddReview, activeUser, medium_id }) {
   const [date, setDate] = useState("");
   const [newReview, setReview] = useState("");
   const [rating, setRating] = useState("");
@@ -16,8 +16,8 @@ function NewReviewForm({ onAddReview }) {
         date: date,
         review: newReview,
         rating: rating,
-        user_id: 1,
-        medium_id: 1
+        user_id: activeUser,
+        medium_id: medium_id
       }),
     })
       .then((r) => r.json())

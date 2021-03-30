@@ -2,14 +2,15 @@ import React from 'react'
 import Search from './Search'
 import UserSelect from './UserSelect.js'
 
-function NavBar({userArray}) {
-    console.log(userArray)
-    const userObj = userArray.map((user) => {
-    return <UserSelect key={user.id} userObj={user}/>})
+function NavBar({userArray, updateActiveUser}) {
+//     console.log(userArray)
+//    const username = userArray.map((user) => user.username)
+    // return <UserSelect key={user.id} name={user.name}/>})
+    // console.log(username)
     return (
         <div>
             <Search />
-            <UserSelect />
+            <UserSelect userArray={userArray} updateActiveUser={updateActiveUser}/>
         </div>
     )
 }

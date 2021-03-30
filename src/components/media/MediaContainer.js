@@ -8,6 +8,8 @@ function MediaContainer() {
     const [media, setMedia] = useState([])
     const [review, setReview] = useState([])
     const [user, setUser] = useState([])
+    const [activeUser, setActiveUser] = useState(null)
+    console.log(activeUser)
 
     useEffect(() => {
         fetch('http://localhost:3000/media')
@@ -27,6 +29,16 @@ function MediaContainer() {
         .then(setUser)
     }, [])
 
+    function handleDeleteReview(id) {
+        const deletedReviewsArray = review.filter((reviews) => reviews.id !== id);
+        console.log(deletedReviewsArray)
+        setReview(deletedReviewsArray)
+    }
+
+    function updateActiveUser(activeUser) {
+        setActiveUser(activeUser)
+    }
+
     function handleAddReview(newReview) {
         const updatedReviewsArray = [...review, newReview];
         setReview(updatedReviewsArray);
@@ -34,9 +46,9 @@ function MediaContainer() {
 
     return (
         <div>
-            <NavBar searchTerm={searchTerm} onSearchChange={setSearchTerm} userArray={user}/>
+            <NavBar searchTerm={searchTerm} onSearchChange={setSearchTerm} userArray={user} updateActiveUser={updateActiveUser}/>
             <Featured />           
-            <MediaList media={media} review={review} handleAddReview={handleAddReview}/>
+            <MediaList handleDeleteReview={handleDeleteReview} activeUser={activeUser} media={media} review={review} handleAddReview={handleAddReview}/>
         </div>
     )
     }
