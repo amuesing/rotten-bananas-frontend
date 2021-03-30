@@ -7,7 +7,7 @@ function MediaContainer() {
     const [searchTerm, setSearchTerm] = useState("")
     const [media, setMedia] = useState([])
     const [review, setReview] = useState([])
-    console.log(searchTerm)
+    const [user, setUser] = useState([])
 
     useEffect(() => {
         fetch('http://localhost:3000/media')
@@ -21,15 +21,20 @@ function MediaContainer() {
         .then(setReview)
     }, [])
 
+    useEffect(() => {
+        fetch('http://localhost:3000/users')
+        .then((r) => r.json())
+        .then(setUser)
+    }, [])
+
     function handleAddReview(newReview) {
         const updatedReviewsArray = [...review, newReview];
         setReview(updatedReviewsArray);
-        // console.log(updatedReviewsArray)
       }
 
     return (
         <div>
-            <NavBar searchTerm={searchTerm} onSearchChange={setSearchTerm}/>
+            <NavBar searchTerm={searchTerm} onSearchChange={setSearchTerm} userArray={user}/>
             <Featured />           
             <MediaList media={media} review={review} handleAddReview={handleAddReview}/>
         </div>

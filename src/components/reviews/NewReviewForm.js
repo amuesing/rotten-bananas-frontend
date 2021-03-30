@@ -16,10 +16,12 @@ function NewReviewForm({ onAddReview }) {
         date: date,
         review: newReview,
         rating: rating,
+        user_id: 1,
+        medium_id: 1
       }),
     })
       .then((r) => r.json())
-      .then((newReview) => console.log(newReview));
+      .then((newReview) => onAddReview(newReview));
   }
     return (
     <div className="new-review-form">

@@ -12,7 +12,6 @@ function MediaList({media, review, handleAddReview}) {
         setFiltered(mediaReviews)
     }
 
-    // console.log({media, review})
     const mediaObject = media.map((mediaObj) => {
         let mediaReviews = [...review].filter((filteredObj) => (filteredObj.medium_id === mediaObj.id))
     return <MediaCard key={mediaObj.id} id={mediaObj.id} media={mediaObj} reviews={mediaReviews} handleAddReview={handleAddReview}/>})
@@ -20,7 +19,7 @@ function MediaList({media, review, handleAddReview}) {
         <div>
         {mediaObject}  
         </div>
-        )
+    )
 }
 
 export default MediaList

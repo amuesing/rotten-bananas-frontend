@@ -5,7 +5,6 @@ const ReviewContainer = ({reviews}) => {
     const reviewObject = reviews.map((reviewObj) => {
         return <ReviewCard key={reviewObj.id} reviews={reviewObj}/>
     })
-    // console.log(reviews)
     return (
         <div>
             {reviewObject}
