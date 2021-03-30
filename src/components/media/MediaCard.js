@@ -4,12 +4,11 @@ import ReviewContainer from '../reviews/ReviewContainer.js'
 import MovieDetails from './MovieDetails'
 import NewReviewForm from '../reviews/NewReviewForm.js'
 
-function MediaCard({media, reviews, handleAddReview, handleDeleteReview, activeUser, id}) {
+function MediaCard({media, reviews, handleReviewUpdate, handleAddReview, handleDeleteReview, activeUser, id}) {
     const [showReviews, setShowReviews] = useState(true)
-
     
     function mediaReviews() {
-        return <ReviewContainer handleDeleteReview={handleDeleteReview} reviews={reviews} />}
+        return <ReviewContainer handleReviewUpdate={handleReviewUpdate} handleDeleteReview={handleDeleteReview} reviews={reviews} />}
 
     function handleShowReviews() {
         setShowReviews(!showReviews)

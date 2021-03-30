@@ -1,11 +1,11 @@
 import React from 'react'
 import ReviewCard from './ReviewCard'
 
-const ReviewContainer = ({reviews, handleDeleteReview}) => {
+const ReviewContainer = ({reviews, handleReviewUpdate, handleDeleteReview}) => {
 
 
     const reviewObject = reviews.map((reviewObj) => {
-        return <ReviewCard key={reviewObj.id} reviews={reviewObj} handleDeleteReview={handleDeleteReview}/>
+        return <ReviewCard handleReviewUpdate={handleReviewUpdate} key={reviewObj.id} reviews={reviewObj} handleDeleteReview={handleDeleteReview}/>
     })
     return (
         <div>
