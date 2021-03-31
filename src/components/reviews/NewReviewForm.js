@@ -25,7 +25,6 @@ function NewReviewForm({ onAddReview, activeUser, medium_id }) {
   }
     return (
     <div className="new-review-form">
-      <h2>New Review</h2>
       <form onSubmit={handleSubmit}>
         <label> 
             Date:

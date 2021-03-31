@@ -32,6 +32,11 @@ function MediaContainer() {
         setActiveUser(activeUser)
     }
 
+
+    const displayedMedia = media.filter((medium) => {
+        return medium.title.toLowerCase().includes(searchTerm.toLowerCase());
+    });
+
     function handleDeleteReview(id) {
         const updateReviewsArray = review.filter((reviews) => reviews.id !== id);
         setReview(updateReviewsArray)
@@ -60,7 +65,7 @@ function MediaContainer() {
         <div>
             <NavBar searchTerm={searchTerm} onSearchChange={setSearchTerm} userArray={user} updateActiveUser={updateActiveUser}/>
             <Featured />           
-            <MediaList handleReviewUpdate={handleReviewUpdate} handleDeleteReview={handleDeleteReview} activeUser={activeUser} media={media} review={review} handleAddReview={handleAddReview} userArray={user}/>
+            <MediaList handleReviewUpdate={handleReviewUpdate} handleDeleteReview={handleDeleteReview} activeUser={activeUser} media={displayedMedia} review={review} handleAddReview={handleAddReview}/>
         </div>
     )
     }
