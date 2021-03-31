@@ -2,6 +2,7 @@ import React from 'react'
 
 function UserSelect({userArray, updateActiveUser}) {
 const user = userArray.map(user => <option value={user.id}>{user.username}</option>)
+
 function handleChangeUser(e) {
    updateActiveUser(e.target.value)
     // updateActiveUser(user)

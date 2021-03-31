@@ -1,11 +1,15 @@
 import React, { useState } from 'react'
 
-function ReviewCard({reviews, handleDeleteReview, handleReviewUpdate}) {
-const [updatedDate, setUpdatedDate] = useState(reviews.date)
+function ReviewCard({reviews, handleDeleteReview, handleReviewUpdate, userArray, activeUser}) {
 const [updatedReview, setUpdatedReview] = useState(reviews.review)
 const [updatedRating, setUpdatedRating] = useState(reviews.rating)
 
-console.log(handleReviewUpdate)
+const userObj = userArray.map((user) => user.id, user.username)
+
+console.log(userObj)
+
+// const username = userObj.find(userObj.id === reviews.user_id);
+
 
     function handleDeleteClick() {
         fetch(`http://localhost:3000/reviews/${reviews.id}`, {
@@ -21,8 +25,7 @@ console.log(handleReviewUpdate)
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({  date: updatedDate,
-                                    review: updatedReview,
+            body: JSON.stringify({  review: updatedReview,
                                     rating: updatedRating}),
         })
         .then((r) => r.json())
@@ -32,12 +35,9 @@ console.log(handleReviewUpdate)
 
     return (
         <div style={{border: '2px solid black'}}>
+            <p>{reviews.user_id}</p>
+            <p>{reviews.date}</p>
             <form onSubmit={handleUpdate}>
-            <input
-            type="string"
-            placeholder={reviews.date}
-            value={updatedDate}
-            onChange={(e) => setUpdatedDate(e.target.value)}/>
             <input 
             type="string"
             placeholder={reviews.review}

@@ -60,7 +60,7 @@ function MediaContainer() {
         <div>
             <NavBar searchTerm={searchTerm} onSearchChange={setSearchTerm} userArray={user} updateActiveUser={updateActiveUser}/>
             <Featured />           
-            <MediaList handleReviewUpdate={handleReviewUpdate} handleDeleteReview={handleDeleteReview} activeUser={activeUser} media={media} review={review} handleAddReview={handleAddReview}/>
+            <MediaList handleReviewUpdate={handleReviewUpdate} handleDeleteReview={handleDeleteReview} activeUser={activeUser} media={media} review={review} handleAddReview={handleAddReview} userArray={user}/>
         </div>
     )
     }
